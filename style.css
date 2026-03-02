@@ -306,35 +306,41 @@ footer {
 }
 
 
-/* Botón para activar/desactivar modo oscuro manual */
+
+/* MODO OSCURO MANUAL (cuando el usuario pulsa el botón) */
+
 body.manual-dark,
-body.manual-dark section,
-body.manual-dark header,
-body.manual-dark nav,
-body.manual-dark footer {
+body.manual-dark * {
     background-color: #1a1a1a !important;
     color: #e4e4e4 !important;
 }
 
-body.manual-dark header {
-    background:#111 !important;
+/* Ajustes específicos */
+body.manual-dark header,
+body.manual-dark .hero {
+    background: #111 !important;
 }
 
 body.manual-dark nav {
-    background:#111 !important;
+    background: #111 !important;
+}
+
+body.manual-dark nav a {
+    color: #d8f3dc !important;
 }
 
 body.manual-dark .card {
-    background:#222 !important;
-    box-shadow:0 4px 12px #00000080 !important;
+    background: #222 !important;
+    box-shadow: 0 4px 12px #00000080 !important;
 }
 
 body.manual-dark .icon-circle {
-    background:#333 !important;
-    color:#eee !important;
+    background: #333 !important;
+    color: #eee !important;
 }
 
 body.manual-dark footer {
-    background:#111 !important;
+    background: #111 !important;
 }
+
 
