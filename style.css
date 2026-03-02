@@ -310,86 +310,67 @@ footer {
 /* ---------------------------------------------------------- */
 
 @media (prefers-color-scheme: dark) {
-
-    body {
-        background-color: #1a1a1a;
-        color: #e4e4e4;
+    body, section, header, nav, footer {
+        background-color: #1a1a1a !important;
+        color: #e4e4e4 !important;
     }
 
     header, .hero {
-        background: linear-gradient(180deg, #245d4a, #193f32);
+        background: #111 !important;
+        border-bottom: 1px solid #333;
     }
 
     nav {
-        background-color: #193f32;
+        background-color: #111 !important;
     }
 
     nav a {
-        color: #d8f3dc;
+        color: #d8f3dc !important;
     }
 
     .card {
-        background: #2a2a2a;
-        box-shadow: 0 5px 15px #00000070;
-    }
-
-    footer {
-        background-color: #193f32;
-        color: #d8f3dc;
+        background: #222 !important;
+        box-shadow: 0 4px 12px #00000080 !important;
     }
 
     .icon-circle {
-        background: #2d6a4f;
-        color: #f6fff7;
+        background: #333 !important;
+        color: #eee !important;
+    }
+
+    footer {
+        background-color: #111 !important;
+        color: #ddd !important;
     }
 }
 /* Botón para activar/desactivar modo oscuro manual */
-.dark-btn {
-    padding: 8px 14px;
-    background: var(--verde-oscuro);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.dark-btn:hover {
-    background: var(--verde-medio);
-    transform: translateY(-2px);
-}
-
-/* Cuando el modo oscuro manual está activo */
-body.manual-dark {
+body.manual-dark,
+body.manual-dark section,
+body.manual-dark header,
+body.manual-dark nav,
+body.manual-dark footer {
     background-color: #1a1a1a !important;
     color: #e4e4e4 !important;
 }
 
-body.manual-dark header,
-body.manual-dark .hero {
-    background: linear-gradient(180deg, #245d4a, #193f32) !important;
+body.manual-dark header {
+    background:#111 !important;
 }
 
 body.manual-dark nav {
-    background-color: #193f32 !important;
-}
-
-body.manual-dark nav a {
-    color: #d8f3dc !important;
+    background:#111 !important;
 }
 
 body.manual-dark .card {
-    background: #2a2a2a !important;
-    box-shadow: 0 5px 15px #00000070 !important;
-}
-
-body.manual-dark footer {
-    background-color: #193f32 !important;
-    color: #d8f3dc !important;
+    background:#222 !important;
+    box-shadow:0 4px 12px #00000080 !important;
 }
 
 body.manual-dark .icon-circle {
-    background: #2d6a4f !important;
-    color: #f6fff7 !important;
+    background:#333 !important;
+    color:#eee !important;
+}
+
+body.manual-dark footer {
+    background:#111 !important;
 }
