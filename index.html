@@ -22,6 +22,7 @@
   <a href="contacto.html">Contacto</a>
   <a href="taller-ninos.html">Taller Niñ@s</a>
   <a href="herramientas.html">Herramientas</a>
+<button id="darkToggle" class="dark-btn">🌙 Modo noche</button>
 </nav>
 
 <section>
@@ -183,8 +184,23 @@
 <footer>
     <p>Creado por Maria Monzón</p>
 </footer>
+    <script>
+const toggle = document.getElementById("darkToggle");
+
+toggle.addEventListener("click", () => {
+    document.body.classList.toggle("manual-dark");
+
+    // Opcional: cambiar el texto del botón según el modo
+    if (document.body.classList.contains("manual-dark")) {
+        toggle.textContent = "☀️ Modo claro";
+    } else {
+        toggle.textContent = "🌙 Modo noche";
+    }
+});
+</script>
 </body>
 </html>
+
 
 
 
