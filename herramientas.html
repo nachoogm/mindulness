@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Herramientas – Mindfulness con María Monzón</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Paneles de herramienta */
+    .tools { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); }
+    .tool { background:#fff; border-radius:14px; padding:20px; box-shadow:0 6px 16px #00000015; }
+
+    /* Temporizador */
+    .timer-display { font-size:2.2rem; font-weight:700; color:#1b4332; margin:10px 0 14px; }
+    .timer-controls button { margin-right:8px; }
+
+    /* Sonidos */
+    .sound-row { display:flex; align-items:center; justify-content:space-between; gap:10px; margin:8px 0; }
+    .sound-row label { font-weight:600; }
+
+    /* Respiración animada */
+    .breath-wrap { display:flex; flex-direction:column; align-items:center; gap:14px; }
+    .circle {
+      width:160px; height:160px; border-radius:50%;
+      background: radial-gradient(circle, #b7e4c7 0%, #95d5b2 70%, #74c69d 100%);
+      animation: breathe 8s ease-in-out infinite;
+      box-shadow:0 10px 24px #00000025;
+    }
+    @keyframes breathe {
+      0% { transform: scale(0.85); }
+      40% { transform: scale(1.05); }   /* Inhala */
+      55% { transform: scale(1.05); }   /* Mantén */
+      100% { transform: scale(0.85); }  /* Exhala */
+    }
+    .breath-cue { font-size:1.2rem; color:#2d6a4f; }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>Herramientas</h1>
+  <p>Prácticas sencillas para tu día a día</p>
+</header>
+
+<nav>
+  <a href="index.html">Inicio</a>
+  <a href="meditaciones.html">Meditaciones</a>
+  <a href="sobre.html">Sobre mí</a>
+  <a href="contacto.html">Contacto</a>
+  <a href="taller-ninos.html">Taller Niñ@s</a>
+  <a href="recursos.html">Recursos</a>
+  <a href="herramientas.html">Herramientas</a>
+</nav>
+
+<section>
+  <div class="tools">
+
+    <!-- 4.1 Temporizador de meditación -->
+    <div class="tool">
+      <h2>⏱️ Temporizador</h2>
+      <p>Elige el tiempo y pulsa iniciar.</p>
+      <input id="minutes" type="number" min="1" value="5" style="width:90px"> min
+      <div class="timer-display" id="display">05:00</div>
+      <div class="timer-controls">
+        <button class="cta-button" id="startBtn">Iniciar</button>
+        <button class="cta-button" id="pauseBtn">Pausar</button>
+        <button class="cta-button" id="resetBtn">Reiniciar</button>
+      </div>
+    </div>
+
+    <!-- 4.2 Sonidos relajantes -->
+    <div class="tool">
+      <h2>🎵 Sonidos relajantes</h2>
+      <p>Activa los que quieras (se mezclan). Sube tus audios a <code>/sonidos</code>.</p>
+
+      <div class="sound-row">
+        <label><input type="checkbox" data-sound="lluvia"> Lluvia suave</label>
+        <input type="range" min="0" max="1" step="0.01" value="0.5" data-volume="lluvia">
+      </div>
+      <div class="sound-row">
+        <label><input type="checkbox" data-sound="mar"> Mar</label>
+        <input type="range" min="0" max="1" step="0.01" value="0.5" data-volume="mar">
+      </div>
+      <div class="sound-row">
+        <label><input type="checkbox" data-sound="bosque"> Bosque</label>
+        <input type="range" min="0" max="1" step="0.01" value="0.5" data-volume="bosque">
+      </div>
+
+      <!-- Audios (sube tus archivos reales con estos nombres) -->
+      <audio id="audio-lluvia" src="sonidos/lluvia.mp3" loop></audio>
+      <audio id="audio-mar"    src="sonidos/mar.mp3" loop></audio>
+      <audio id="audio-bosque" src="sonidos/bosque.mp3" loop></audio>
+    </div>
+
+    <!-- 4.3 Respiración animada -->
+    <div class="tool">
+      <h2>🌬️ Respiración animada (4–2–6)</h2>
+      <div class="breath-wrap">
+        <div class="circle"></div>
+        <div class="breath-cue" id="breathCue">Inhala… 4</div>
+      </div>
+      <p style="font-size:.95rem;color:#477a64">Sigue el ciclo: inhala 4 · mantén 2 · exhala 6</p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>Mindfulness con María Monzón</p>
+</footer>
+
+<script>
+/* ---------- Temporizador ---------- */
+let interval=null, remaining=300;
+const d = document, disp = d.getElementById('display');
+function fmt(s){ const m=Math.floor(s/60).toString().padStart(2,'0'); const ss=(s%60).toString().padStart(2,'0'); return `${m}:${ss}`; }
+function tick(){ if(remaining>0){ remaining--; disp.textContent=fmt(remaining); } else { clearInterval(interval); interval=null; try{
+  const ctx=new (window.AudioContext||window.webkitAudioContext)(); const osc=ctx.createOscillator(); const g=ctx.createGain();
+  osc.type='sine'; osc.frequency.value=660; g.gain.value=0.05; osc.connect(g).connect(ctx.destination); osc.start(); setTimeout(()=>{osc.stop();ctx.close();},1200);
+} catch(e){} } }
+d.getElementById('minutes').addEventListener('change', e=>{ const m=Math.max(1,parseInt(e.target.value||1,10)); remaining=m*60; disp.textContent=fmt(remaining); });
+d.getElementById('startBtn').addEventListener('click', ()=>{ if(interval) return; interval=setInterval(tick,1000); });
+d.getElementById('pauseBtn').addEventListener('click', ()=>{ clearInterval(interval); interval=null; });
+d.getElementById('resetBtn').addEventListener('click', ()=>{ clearInterval(interval); interval=null; const m=Math.max(1,parseInt(d.getElementById('minutes').value||1,10)); remaining=m*60; disp.textContent=fmt(remaining); });
+
+/* ---------- Sonidos ---------- */
+const sounds = {
+  lluvia: d.getElementById('audio-lluvia'),
+  mar: d.getElementById('audio-mar'),
+  bosque: d.getElementById('audio-bosque')
+};
+d.querySelectorAll('input[type="checkbox"][data-sound]').forEach(cb=>{
+  cb.addEventListener('change', ()=>{
+    const key = cb.getAttribute('data-sound');
+    const el = sounds[key];
+    if(!el) return;
+    if(cb.checked){ el.currentTime=0; el.play(); }
+    else { el.pause(); }
+  });
+});
+d.querySelectorAll('input[type="range"][data-volume]').forEach(r=>{
+  r.addEventListener('input', ()=>{
+    const key=r.getAttribute('data-volume');
+    if(sounds[key]) sounds[key].volume = parseFloat(r.value||0.5);
+  });
+});
+
+/* ---------- Respiración 4–2–6 ---------- */
+const cue = d.getElementById('breathCue');
+const phases = [
+  {text:'Inhala…', seconds:4},
+  {text:'Mantén…', seconds:2},
+  {text:'Exhala…', seconds:6}
+];
+let phase=0, timeLeft=phases[0].seconds;
+function step(){
+  cue.textContent = `${phases[phase].text} ${timeLeft}`;
+  timeLeft--;
+  if(timeLeft<0){ phase=(phase+1)%phases.length; timeLeft=phases[phase].seconds; }
+}
+setInterval(step,1000);
+</script>
+</body>
+</html>
