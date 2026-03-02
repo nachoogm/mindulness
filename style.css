@@ -1,46 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap');
+
 body {
     margin: 0;
-    font-family: "Segoe UI", sans-serif;
-    background-color: #f2f7f4;
+    font-family: 'Quicksand', sans-serif;
+    background-color: #f6f7f4;
     color: #333;
 }
 
 header {
+    background: #b7e4c7;
+    padding: 30px 20px;
     text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(#b7e4c7, #d8f3dc);
 }
 
-h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
+header h1 {
+    margin: 0;
+    font-size: 2.6rem;
 }
 
-.intro, .sections {
-    padding: 40px 20px;
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px;
+    background-color: #d8f3dc;
+}
+
+nav a {
+    text-decoration: none;
+    color: #2d6a4f;
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: #1b4332;
+}
+
+section {
     max-width: 900px;
     margin: auto;
+    padding: 40px 20px;
 }
 
-.sections {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
 }
 
 .card {
     background: white;
-    padding: 20px;
+    padding: 25px;
     border-radius: 12px;
-    width: 260px;
     text-align: center;
-    box-shadow: 0 4px 10px #00000015;
+    box-shadow: 0 4px 15px #00000015;
 }
 
 footer {
+    background: #d8f3dc;
     text-align: center;
-    padding: 20px;
+    padding: 25px;
     margin-top: 40px;
-    background-color: #d8f3dc;
 }
+``
