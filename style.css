@@ -305,44 +305,7 @@ footer {
     .card { padding: 18px; }
 }
 
-/* ---------------------------------------------------------- */
-/*                    MODO OSCURO AUTOMÁTICO                  */
-/* ---------------------------------------------------------- */
 
-@media (prefers-color-scheme: dark) {
-    body, section, header, nav, footer {
-        background-color: #1a1a1a !important;
-        color: #e4e4e4 !important;
-    }
-
-    header, .hero {
-        background: #111 !important;
-        border-bottom: 1px solid #333;
-    }
-
-    nav {
-        background-color: #111 !important;
-    }
-
-    nav a {
-        color: #d8f3dc !important;
-    }
-
-    .card {
-        background: #222 !important;
-        box-shadow: 0 4px 12px #00000080 !important;
-    }
-
-    .icon-circle {
-        background: #333 !important;
-        color: #eee !important;
-    }
-
-    footer {
-        background-color: #111 !important;
-        color: #ddd !important;
-    }
-}
 /* Botón para activar/desactivar modo oscuro manual */
 body.manual-dark,
 body.manual-dark section,
@@ -374,3 +337,4 @@ body.manual-dark .icon-circle {
 body.manual-dark footer {
     background:#111 !important;
 }
+
