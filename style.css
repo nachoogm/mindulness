@@ -155,3 +155,52 @@ footer {
     font-size: 0.95rem;
     color: #2d6a4f;
 }
+/* Animaciones suaves */
+.fade-in {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: fadeInUp 1s ease forwards;
+}
+
+.fade-in.delay-1 { animation-delay: .2s; }
+.fade-in.delay-2 { animation-delay: .4s; }
+.fade-in.delay-3 { animation-delay: .6s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Iconos redondos minimalistas */
+.icon-circle {
+    width: 70px;
+    height: 70px;
+    background: #d8f3dc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin: 0 auto 15px auto;
+    color: #1b4332;
+}
+
+/* Botón CTA */
+.cta-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 26px;
+    background: #1b4332;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.cta-button:hover {
+    background: #2d6a4f;
+    transform: translateY(-3px);
+}
