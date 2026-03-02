@@ -343,3 +343,53 @@ footer {
         color: #f6fff7;
     }
 }
+/* Botón para activar/desactivar modo oscuro manual */
+.dark-btn {
+    padding: 8px 14px;
+    background: var(--verde-oscuro);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.dark-btn:hover {
+    background: var(--verde-medio);
+    transform: translateY(-2px);
+}
+
+/* Cuando el modo oscuro manual está activo */
+body.manual-dark {
+    background-color: #1a1a1a !important;
+    color: #e4e4e4 !important;
+}
+
+body.manual-dark header,
+body.manual-dark .hero {
+    background: linear-gradient(180deg, #245d4a, #193f32) !important;
+}
+
+body.manual-dark nav {
+    background-color: #193f32 !important;
+}
+
+body.manual-dark nav a {
+    color: #d8f3dc !important;
+}
+
+body.manual-dark .card {
+    background: #2a2a2a !important;
+    box-shadow: 0 5px 15px #00000070 !important;
+}
+
+body.manual-dark footer {
+    background-color: #193f32 !important;
+    color: #d8f3dc !important;
+}
+
+body.manual-dark .icon-circle {
+    background: #2d6a4f !important;
+    color: #f6fff7 !important;
+}
