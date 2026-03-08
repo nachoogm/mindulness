@@ -1,0 +1,21 @@
+{
+  "routes": [
+    { "route": "/", "rewrite": "/index.html" },
+
+    { "route": "/index.html", "redirect": "/", "statusCode": 301 },
+
+    { "route": "/meditaciones", "rewrite": "/meditaciones.html" },
+    { "route": "/audios", "rewrite": "/audios.html" },
+    { "route": "/sobre", "rewrite": "/sobre.html" },
+    { "route": "/contacto", "rewrite": "/contacto.html" },
+    { "route": "/taller-ninos", "rewrite": "/taller-ninos.html" },
+    { "route": "/herramientas", "rewrite": "/herramientas.html" },
+
+    { "route": "/meditaciones.html", "redirect": "/meditaciones", "statusCode": 301 },
+    { "route": "/audios.html", "redirect": "/audios", "statusCode": 301 },
+    { "route": "/sobre.html", "redirect": "/sobre", "statusCode": 301 },
+    { "route": "/contacto.html", "redirect": "/contacto", "statusCode": 301 },
+    { "route": "/taller-ninos.html", "redirect": "/taller-ninos", "statusCode": 301 },
+    { "route": "/herramientas.html", "redirect": "/herramientas", "statusCode": 301 }
+  ]
+}
