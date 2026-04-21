@@ -304,6 +304,49 @@ footer {
     nav { gap: 18px; }
     .card { padding: 18px; }
 }
+/* ===== Taller extra PDF ===== */
+.extra-taller {
+  margin: 60px auto;
+  padding: 32px;
+  max-width: 700px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.extra-taller h2 {
+  color: #1b4332;
+  margin-bottom: 12px;
+}
+
+.extra-desc {
+  font-size: 1.05rem;
+  color: #444;
+  margin-bottom: 26px;
+  line-height: 1.6;
+}
+
+.extra-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.pdf-button {
+  display: inline-block;
+  padding: 14px 24px;
+  background: #2d6a4f;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.pdf-button:hover {
+  background: #1b4332;
+  transform: translateY(-2px);
+}
 
 
 
