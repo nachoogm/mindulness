@@ -349,6 +349,30 @@ footer {
 }
 
 
+/* ===== Tarjetas para la página Taller Niñ@s (para que todo se vea igual de bonito) ===== */
+.content-card {
+  background: var(--blanco);
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  padding: 32px;
+  margin: 40px auto;
+}
+
+.content-card h2,
+.content-card h3 {
+  text-align: center;
+}
+
+.content-card p {
+  max-width: 720px;
+  margin: 0 auto 16px;
+}
+
+.content-card ul {
+  max-width: 720px;
+  margin: 18px auto 0;
+}
+
 
 
 
